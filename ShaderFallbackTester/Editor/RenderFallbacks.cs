@@ -6,13 +6,13 @@ using System.IO;
 
 //reset on new transform
 [ExecuteInEditMode]
-public class RenderFallbacks : EditorWindow 
+public class RenderFallbacks : EditorWindow
 {
 
-    [MenuItem("Tools/Xiexe/Fallback Tester")]
+    [MenuItem("Shaders/Shader Fallback Tester")]
     static public void Init()
     {
-        RenderFallbacks window = EditorWindow.GetWindow<RenderFallbacks>(true, "Fallback Tester", true);
+        RenderFallbacks window = EditorWindow.GetWindow<RenderFallbacks>(true, "Shader Fallback Tester", true);
         window.minSize = new Vector2(400, 300);
         window.maxSize = new Vector2(401, 501);
     }
@@ -96,7 +96,7 @@ public class RenderFallbacks : EditorWindow
                     if (shadersAreFallbacks)
                         RevertFallbacks();
                     else
-                        Debug.Log("Shaders aren't set to fallbacks, can't revert.");
+                        Debug.Log("Shaders aren't set to fallbacks; can't revert.");
                 }
             }
         }
@@ -214,7 +214,7 @@ public class RenderFallbacks : EditorWindow
                     {
                         string propName = ShaderUtil.GetPropertyName(s, n);
                         m.SetTexture(propName, oldTextures[i][j][n]);
-                        
+
                     }
                 }
             }
@@ -290,5 +290,5 @@ public class RenderFallbacks : EditorWindow
     {
         EditorGUILayout.HelpBox(message, type);
     }
-    // ---- 
+    // ----
 }
